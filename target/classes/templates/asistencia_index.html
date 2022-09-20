@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>My Web App</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<style>
+  header {
+  background-color: #666;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+</style>
+<body>
+<header>
+  <h1> Libro de asistencias </h1>
+</header>
+<div class="container-sm">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th>Numero de asistencia</th>
+      <th>Fecha</th>
+      <th>RUT del trabajador</th>
+      <th>Hora de entrada</th>
+      <th>Hora de salida</th>
+      <th>¿Tiene justificativo?</th>
+      <th>¿Autorizado a usar horas extra?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="asistencia:${asistencias}">
+      <td th:text="${asistencia.id_asistencia}"></td>
+      <td th:text="${asistencia.fecha}"></td>
+      <td th:text="${asistencia.id_empleado}"></td>
+      <td th:text="${asistencia.hora_entrada}"></td>
+      <td th:text="${asistencia.hora_salida}"></td>
+      <td th:text="${asistencia.justificativo}"></td>
+      <td th:text="${asistencia.horas_extra}"></td>
+
+      <td>
+        <a class="btn btn-primary" role="button">Editar asistencia</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
