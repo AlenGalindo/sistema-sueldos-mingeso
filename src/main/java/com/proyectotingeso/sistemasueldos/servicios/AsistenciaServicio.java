@@ -20,8 +20,9 @@ public class AsistenciaServicio {
         return asistenciaRepositorio.save(asistencia);
     }
 
-    public Optional<AsistenciaEntidad> getPorId(Long id){
-        return asistenciaRepositorio.findById(id);
+    public Optional<AsistenciaEntidad> getById(Long id){
+        Optional<AsistenciaEntidad> asistenciaEntidad = asistenciaRepositorio.findById(id);
+        return asistenciaEntidad;
     }
 
     public boolean deleteAsistencia(Long id) {
@@ -33,7 +34,4 @@ public class AsistenciaServicio {
         }
     }
 
-    public AsistenciaEntidad updateAsistencia(AsistenciaEntidad asistencia, int id){
-        return asistenciaRepositorio.
-    }
 }

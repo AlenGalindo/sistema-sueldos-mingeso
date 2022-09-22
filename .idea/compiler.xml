@@ -8,12 +8,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="sistema-sueldos" />
+        <module name="sistema-sueldos-mingeso" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="sistema-sueldos" options="-parameters" />
+      <module name="sistema-sueldos-mingeso" options="-parameters" />
     </option>
   </component>
 </project>

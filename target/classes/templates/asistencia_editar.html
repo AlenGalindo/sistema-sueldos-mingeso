@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>My Web App</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<style>
+  header {
+  background-color: #666;
+  padding: 10px;
+  text-align: center;
+  font-size: 35px;
+  color: white;
+}
+
+td {
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+</style>
+<body>
+  <div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+          <h1 class="text-center">Editar Justificativo/Permiso de horas extrar</h1>
+          <div class="card-body">
+            <form th:action="@{/asistencias/{id}(id=${asistencia.id_asistencia})}" th:object="${asistencia}" method="POST">
+              <div class="form-gorup">
+                <label> Justificativo</label>
+                <input type="text" name="justificativo" th:field="*{justificativo}" class="form-control" placeholder="1 para si 0 para no"></input>
+              </div>
+              <br>
+              <div class="form-gorup">
+                <label> Horas extra</label>
+                <input type="text" name="horas_extra" th:field="*{horas_extra}" class="form-control" placeholder="1 para si 0 para no"></input>
+              </div>
+              <button class="btn btn-success">Guardar</button>
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

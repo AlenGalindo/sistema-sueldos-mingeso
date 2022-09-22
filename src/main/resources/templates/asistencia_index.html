@@ -8,10 +8,23 @@
 <style>
   header {
   background-color: #666;
-  padding: 30px;
+  padding: 10px;
   text-align: center;
   font-size: 35px;
   color: white;
+}
+
+td {
+  text-align: center;
+}
+
+th {
+  text-align: center;
+}
+
+div {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 </style>
 <body>
@@ -19,7 +32,11 @@
   <h1> Libro de asistencias </h1>
 </header>
 <div class="container-sm">
-  <table class="table">
+  <a class="btn btn-primary" role="button">Cargar archivo de asistencias</a>
+  <a class="btn btn-danger" role="button">Eliminar asistencias</a>
+</div>
+<div class="container-sm">
+  <table class="table table-dark table-striped">
     <thead class="thead-dark">
     <tr>
       <th>Numero de asistencia</th>
@@ -29,6 +46,7 @@
       <th>Hora de salida</th>
       <th>¿Tiene justificativo?</th>
       <th>¿Autorizado a usar horas extra?</th>
+      <th>Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -42,7 +60,7 @@
       <td th:text="${asistencia.horas_extra}"></td>
 
       <td>
-        <a class="btn btn-primary" role="button">Editar asistencia</a>
+        <a class="btn btn-primary" role="button" th:href="@{/asistencias/editar/{id}(id=${asistencia.id_asistencia})}">Editar asistencia</a>
       </td>
     </tr>
     </tbody>

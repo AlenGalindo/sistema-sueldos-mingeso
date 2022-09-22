@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name = "libro_asistencias")
@@ -17,6 +17,8 @@ public class AsistenciaEntidad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private Long id_asistencia;
+
+
 
     @Column(nullable = false)
     private Long id_empleado;
@@ -30,11 +32,16 @@ public class AsistenciaEntidad {
     @Column(nullable = false)
     private String hora_salida;
 
-    @Column
+    @Column(nullable = false)
     private int justificativo;
 
-    @Column
+    @Column(nullable = false)
     private int horas_extra;
+
+    public AsistenciaEntidad(int justificativo, int horas_extra) {
+        this.justificativo = justificativo;
+        this.horas_extra = horas_extra;
+    }
 
     public Long getId_asistencia() {
         return id_asistencia;
