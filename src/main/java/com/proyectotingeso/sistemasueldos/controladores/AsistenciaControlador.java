@@ -22,22 +22,14 @@ public class AsistenciaControlador {
         return "asistencia_index";
     }
     @GetMapping("/asistencias/editar/{id}")
-    public String editarAsistencia(@PathVariable Long id, Model model){
+    public String editarAsistencia(@PathVariable("id") Long id, Model model){
         Optional<AsistenciaEntidad> asistencia = asistenciaServicio.getById(id);
         model.addAttribute("asistencia",asistencia);
         return "asistencia_editar";
     }
-    @PutMapping("/asistencias/{id}")
-    public String actualizarAsistencia(@PathVariable Long id, @ModelAttribute("asistencia") AsistenciaEntidad asistencia,Model model){
-        Optional<AsistenciaEntidad> asistenciaExistente = asistenciaServicio.getById(id);
-        asistenciaExistente.get().setId_asistencia(id);
-        asistenciaExistente.get().setFecha(asistencia.getFecha());
-        asistenciaExistente.get().setHora_entrada(asistencia.getHora_entrada());
-        asistenciaExistente.get().setHora_salida(asistencia.getHora_salida());
-        asistenciaExistente.get().setJustificativo(asistencia.getJustificativo());
-        asistenciaExistente.get().setHoras_extra(asistencia.getHoras_extra());
-        asistenciaExistente.get().setId_empleado(asistencia.getId_empleado());
-        asistenciaServicio.saveAsistencia(asistenciaExistente.get());
+    @PostMapping("/asistencias/actualizar/{id}")
+    public String actualizarAsistencia(@PathVariable("id") Long id, AsistenciaEntidad asistencia, Model model){
+        asistenciaServicio.saveAsistencia(asistencia);
         return "redirect:asistencias_index";
     }
 }

@@ -8,23 +8,14 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "categoria_empleado")
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Table(name = "categoria")
 public class CategoriaEntidad {
     //Id unico del empleado
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false)
-    private Long id_categoria;
-
-    //Nombre de la categoria
-    @Column(nullable = false)
-    private String categoria;
-
-    @Column(nullable = false)
-    private int sueldo_fijo;
+    private Long id;
+    private String nombre;
+    private int monto;
 
 
 }

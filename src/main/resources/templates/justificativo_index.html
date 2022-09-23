@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>My Web App</title>
+  <title>Sisgtema sueldos - Justificativos de empleados</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
@@ -28,30 +28,29 @@ div {
 }
 </style>
 <body>
+
 <header>
-  <h1> Libro de asistencias </h1>
+  <h1>Justificativos</h1>
 </header>
+
 <div class="container-sm">
-  <a class="btn btn-primary" role="button">Subir archivo de reloj</a>
-  <a class="btn btn-danger" role="button">Eliminar asistencias</a>
+  <a class="btn btn-primary" role="button">Ingresar justificativo</a>
 </div>
-<div class="container-sm">
-  <a class="btn btn-primary" role="button">Cargar archivo de reloj</a>
-</div>
+
 <div class="container-sm">
   <table class="table table-dark table-striped">
     <thead class="thead-dark">
     <tr>
-      <th>Numero de tabla</th>
-      <th>Fecha</th>
-      <th>Rut</th>
+      <th>Numero justificativo</th>
+      <th>Aplica justificativo</th>
+      <th>Id de asistencia</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="asistencia:${asistencias}">
-      <td th:text="${asistencia.id}"></td>
-      <td th:text="${asistencia.fecha}"></td>
-      <td th:text="${asistencia.rut}"></td>
+    <tr th:each="justificativo:${justificativos}">
+      <td th:text="${justificativo.id}"></td>
+      <td th:text="${justificativo.aplica}"></td>
+      <td th:text="${justificativo.id_asistencia}"></td>
     </tr>
     </tbody>
   </table>
