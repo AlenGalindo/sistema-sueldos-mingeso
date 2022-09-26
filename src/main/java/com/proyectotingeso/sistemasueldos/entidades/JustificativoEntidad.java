@@ -1,17 +1,23 @@
 package com.proyectotingeso.sistemasueldos.entidades;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name = "justificativo")
-public class JustificativoEntidad implements Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String aplica;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class JustificativoEntidad{
 
-    @ManyToOne
-    @JoinColumn(name = "id_asistencia")
-    private AsistenciaEntidad asistencia;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(unique = true,nullable = false)
+    private int id;
+    private String aplica;
+    private int id_asistencia;
 }

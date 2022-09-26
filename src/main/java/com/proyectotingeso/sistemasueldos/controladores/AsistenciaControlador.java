@@ -22,7 +22,7 @@ public class AsistenciaControlador {
         return "asistencia_index";
     }
     @GetMapping("/asistencias/editar/{id}")
-    public String editarAsistencia(@PathVariable("id") Long id, Model model){
+    public String editarAsistencia(@PathVariable("id") Integer id, Model model){
         Optional<AsistenciaEntidad> asistencia = asistenciaServicio.getById(id);
         model.addAttribute("asistencia",asistencia);
         return "asistencia_editar";

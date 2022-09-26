@@ -20,12 +20,12 @@ public class AsistenciaServicio {
         return asistenciaRepositorio.save(asistencia);
     }
 
-    public Optional<AsistenciaEntidad> getById(Long id){
+    public Optional<AsistenciaEntidad> getById(int id){
         Optional<AsistenciaEntidad> asistenciaEntidad = asistenciaRepositorio.findById(id);
         return asistenciaEntidad;
     }
 
-    public boolean deleteAsistencia(Long id) {
+    public boolean deleteAsistencia(int id) {
         try{
             asistenciaRepositorio.deleteById(id);
             return true;

@@ -10,14 +10,18 @@ import java.util.Date;
 
 @Entity
 @Table(name = "asistencia")
-public class AsistenciaEntidad implements Serializable {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class AsistenciaEntidad {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(unique = true,nullable = false)
+    private int id;
     private Date fecha;
     private String rut;
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
@@ -29,7 +33,7 @@ public class AsistenciaEntidad implements Serializable {
         return rut;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

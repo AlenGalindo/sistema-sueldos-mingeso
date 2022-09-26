@@ -22,12 +22,12 @@ public class JustificativoServicio {
         return justificativoRepositorio.save(justificativo);
     }
 
-    public Optional<JustificativoEntidad> getById(Long id){
+    public Optional<JustificativoEntidad> getById(int id){
         Optional<JustificativoEntidad> justificativo = justificativoRepositorio.findById(id);
         return justificativo;
     }
 
-    public boolean deleteJustificativo(Long id) {
+    public boolean deleteJustificativo(int id) {
         try{
             justificativoRepositorio.deleteById(id);
             return true;
