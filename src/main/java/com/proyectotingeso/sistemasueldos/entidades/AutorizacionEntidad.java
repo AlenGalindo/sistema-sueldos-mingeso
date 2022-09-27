@@ -12,13 +12,10 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AutorizacionEntidad implements Serializable {
+public class AutorizacionEntidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Boolean aplica;
-
-    @OneToOne
-    @JoinColumn(name = "id_autorizacion")
-    private AsistenciaEntidad asistencia;
+    private String fecha;
+    private String rut;
 }

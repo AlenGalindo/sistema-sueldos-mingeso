@@ -29,9 +29,9 @@ div {
 </style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li class="nav-item active">
@@ -58,7 +58,7 @@ div {
 </header>
 
 <div class="container-sm">
-  <a class="btn btn-primary" role="button">Ingresar justificativo</a>
+  <a th:href="@{/justificativos/crear}" class="btn btn-primary">Ingresar justificativo</a>
 </div>
 
 <div class="container-sm">
@@ -66,15 +66,15 @@ div {
     <thead class="thead-dark">
     <tr>
       <th>Numero justificativo</th>
-      <th>Aplica justificativo</th>
-      <th>Id de asistencia</th>
+      <th>Fecha</th>
+      <th>Rut empleado</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="justificativo:${justificativos}">
       <td th:text="${justificativo.id}"></td>
-      <td th:text="${justificativo.aplica}"></td>
-      <td th:text="${justificativo.id_asistencia}"></td>
+      <td th:text="${justificativo.fecha}"></td>
+      <td th:text="${justificativo.rut}"></td>
     </tr>
     </tbody>
   </table>

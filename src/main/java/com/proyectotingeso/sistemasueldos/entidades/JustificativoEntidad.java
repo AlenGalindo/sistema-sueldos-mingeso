@@ -5,7 +5,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "justificativo")
@@ -18,6 +17,6 @@ public class JustificativoEntidad{
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(unique = true,nullable = false)
     private int id;
-    private String aplica;
-    private int id_asistencia;
+    private String fecha;
+    private String rut;
 }
