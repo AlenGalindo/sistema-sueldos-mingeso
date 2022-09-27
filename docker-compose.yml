@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  mysql-db:
+    image: mysql
+    restart: always
+    volumes:
+      - ./data/db:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: alen3883
+      MYSQL_DATABASE: sistema
+    ports:
+      - 33070:3307
+  app:
+    container_name: <nombre_contenedor>
+    image: <nombre_usuario>/<nombre_repositorio>
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_URL=jdbc:mysql://mysql-db:3306/<nombre_db>?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+      - DB_USERNAME=root
+      - DB_PASSWORD=123456
+    deploy:
+      restart_policy:
+        condition: on-failure
+    depends_on:
+      - mysql-db
