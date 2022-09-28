@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class AutorizacionEntidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String fecha;
     private String rut;
 }

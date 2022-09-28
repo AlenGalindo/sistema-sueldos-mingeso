@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title>My Web App</title>
+  <title>Sistema sueldos - Subir archivo</title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
@@ -26,11 +26,7 @@ div {
   padding-top: 10px;
   padding-bottom: 10px;
 }
-button {
-  color: $purple-700
-}
 </style>
-
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,35 +58,16 @@ button {
     </ul>
   </div>
 </nav>
-
 <body>
-<header>
-  <h1> Libro de asistencias </h1>
-</header>
 
-<div class="container-sm">
-  <button class="btn btn-primary" >Cargar reloj</button>
+
+<h1>Carga de archivos</h1>
+<div class="container">
+  <form action="/cargar" method="POST" enctype="multipart/form-data">
+    <input type="file" class="form-control" name="file"> <input
+          type="submit" value="Carga">
+  </form>
 </div>
 
-<div class="container-sm">
-  <table class="table table-dark table-striped">
-    <thead class="thead-dark">
-    <tr>
-      <th>Numero de asistencia</th>
-      <th>Fecha</th>
-      <th>Hora</th>
-      <th>Rut</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="asistencia:${asistencias}">
-      <td th:text="${asistencia.id}"></td>
-      <td th:text="${asistencia.fecha}"></td>
-      <td th:text="${asistencia.hora}"></td>
-      <td th:text="${asistencia.rut}"></td>
-    </tr>
-    </tbody>
-  </table>
-</div>
 </body>
 </html>

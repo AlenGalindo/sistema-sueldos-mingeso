@@ -1,13 +1,16 @@
 package com.proyectotingeso.sistemasueldos.entidades;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 @Entity
-@Table(name = "sobretiempo")
-public class SobretiempoEntidad implements Serializable {
+@Table(name = "categoria_hora_extra")
+public class CategoriaHoraExtraEntidad {
+    //Id unico del empleado
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private int categoria;
-    private int monto;
+    private String categoria;
+    private int monto_hora_extra;
+
+
 }

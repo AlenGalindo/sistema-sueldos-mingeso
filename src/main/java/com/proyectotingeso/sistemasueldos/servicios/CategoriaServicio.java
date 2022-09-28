@@ -1,6 +1,6 @@
 package com.proyectotingeso.sistemasueldos.servicios;
 
-import com.proyectotingeso.sistemasueldos.entidades.CategoriaEntidad;
+import com.proyectotingeso.sistemasueldos.entidades.CategoriaHoraExtraEntidad;
 import com.proyectotingeso.sistemasueldos.repositorios.CategoriaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,19 +14,19 @@ public class CategoriaServicio {
     @Autowired
     CategoriaRepositorio categoriaRepositorio;
 
-    public ArrayList<CategoriaEntidad> getCategorias(){
-        return (ArrayList<CategoriaEntidad>) categoriaRepositorio.findAll();
+    public ArrayList<CategoriaHoraExtraEntidad> getCategorias(){
+        return (ArrayList<CategoriaHoraExtraEntidad>) categoriaRepositorio.findAll();
     }
 
-    public CategoriaEntidad saveCategoria(CategoriaEntidad empleado){
+    public CategoriaHoraExtraEntidad saveCategoria(CategoriaHoraExtraEntidad empleado){
         return categoriaRepositorio.save(empleado);
     }
 
-    public Optional<CategoriaEntidad> getPorId(Long id){
+    public Optional<CategoriaHoraExtraEntidad> getPorId(int id){
         return categoriaRepositorio.findById(id);
     }
 
-    public boolean deleteCategoria(Long id) {
+    public boolean deleteCategoria(int id) {
         try{
             categoriaRepositorio.deleteById(id);
             return true;

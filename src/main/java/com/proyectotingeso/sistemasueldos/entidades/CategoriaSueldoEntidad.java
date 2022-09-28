@@ -1,12 +1,13 @@
 package com.proyectotingeso.sistemasueldos.entidades;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
 @Entity
-@Table(name = "rut")
-public class RutEntidad implements Serializable {
+@Table(name = "categoria_sueldo")
+public class CategoriaSueldoEntidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String rut;
+    private int id;
+    private String categoria;
+    private int sueldo;
 }

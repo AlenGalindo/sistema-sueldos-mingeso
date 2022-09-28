@@ -15,30 +15,31 @@ import java.util.Date;
 @AllArgsConstructor
 public class AsistenciaEntidad {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false)
     private int id;
-    private Date fecha;
+    private String fecha;
+    private String hora;
     private String rut;
 
-    public int getId() {
-        return id;
+    public String getFecha() {
+        return fecha;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getHora() {
+        return hora;
+    }
+
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 
     public String getRut() {
         return rut;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public void setRut(String rut) {

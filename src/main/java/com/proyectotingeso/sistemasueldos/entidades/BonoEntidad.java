@@ -4,10 +4,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 @Entity
 @Table(name = "bono")
-public class BonoEntidad implements Serializable {
+public class BonoEntidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private int  limite_inferior;
     private int limite_superior;
     private float porcentaje;

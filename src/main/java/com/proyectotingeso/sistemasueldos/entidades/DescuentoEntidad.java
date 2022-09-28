@@ -8,12 +8,11 @@ import java.io.Serializable;
 public class DescuentoEntidad implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     //En minutos
     private int limite_inferior;
     private int limite_superior;
     private float monto;
-    private Boolean justificativo;
 
 
 }

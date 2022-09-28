@@ -22,11 +22,11 @@ public class EmpleadoServicio {
         return empleadoRepositorio.save(empleado);
     }
 
-    public Optional<EmpleadoEntidad> getPorId(Long id){
+    public Optional<EmpleadoEntidad> getPorId(int id){
         return empleadoRepositorio.findById(id);
     }
 
-    public boolean deleteEmpleado(Long id) {
+    public boolean deleteEmpleado(int id) {
         try{
             empleadoRepositorio.deleteById(id);
             return true;

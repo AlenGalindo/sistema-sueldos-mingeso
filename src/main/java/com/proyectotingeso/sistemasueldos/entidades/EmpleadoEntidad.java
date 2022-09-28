@@ -14,7 +14,8 @@ public class EmpleadoEntidad {
     //Id unico del empleado
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
     private String nombre;
-    private Date contratacion;
+    private String fecha_contratacion;
+    private String rut;
 }

@@ -49,11 +49,35 @@ div {
             <li class="nav-item">
                 <a class="nav-link" href="/empleados">Empleados</a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/justificativos">Justificativos</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/autorizaciones">Autorizaciones</a>
+            </li>
         </ul>
     </div>
 </nav>
 
 <body>
+<div class="container text-center">
+    <div class="row align-items-start">
+        <div class="col">
+            <header>Subir archivo de reloj al sistema</header>
+            <a th:href="@{/subir_archivo}" class="btn btn-primary">Subir</a>
+        </div>
+        <div class="col">
+            <header>Cargar datos.txt a base de datos</header>
+            <a method="post" th:href="@{/asistencias/cargar}" class="btn btn-primary">Subir</a>
+        </div>
+        <div class="col">
+            <header>Calcular planilla de sueldos</header>
+            <button class="btn btn-primary">Calcular</button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
