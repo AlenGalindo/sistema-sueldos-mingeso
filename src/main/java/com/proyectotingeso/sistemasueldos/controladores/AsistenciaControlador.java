@@ -27,17 +27,16 @@ public class AsistenciaControlador {
     }
 
     @GetMapping("/asistencias/cargar")
-    public String cargarData() throws FileNotFoundException {
-        ArrayList<String> asistencias = leerArchivoControlador.leerData();
-        /*for (String asistencia: asistencias)
+    public String cargarData() throws IOException {
+        ArrayList<String[]> asistencias = leerArchivoControlador.leerData();
+        for (String[] asistencia: asistencias)
         {
             AsistenciaEntidad asistenciaEntidad = new AsistenciaEntidad();
-            String[] arreglo_asistencia = leerArchivoControlador.splitString(asistencia);
-            asistenciaEntidad.setFecha(leerArchivoControlador.obtenerFecha(arreglo_asistencia));
-            asistenciaEntidad.setHora(leerArchivoControlador.obtenerHora(arreglo_asistencia));
-            asistenciaEntidad.setRut(leerArchivoControlador.obtenerRut(arreglo_asistencia));
+            asistenciaEntidad.setFecha(asistencia[0]);
+            asistenciaEntidad.setHora(asistencia[1]);
+            asistenciaEntidad.setRut(asistencia[2]);
             asistenciaServicio.saveAsistencia(asistenciaEntidad);
-        }*/
+        }
         return "redirect:/asistencias";
     }
 }

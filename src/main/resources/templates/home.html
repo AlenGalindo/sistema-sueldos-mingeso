@@ -30,7 +30,7 @@ div {
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Menu</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -57,6 +57,9 @@ div {
             <li class="nav-item">
                 <a class="nav-link" href="/autorizaciones">Autorizaciones</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/planillas">Planillas</a>
+            </li>
         </ul>
     </div>
 </nav>
@@ -67,10 +70,6 @@ div {
         <div class="col">
             <header>Subir archivo de reloj al sistema</header>
             <a th:href="@{/subir_archivo}" class="btn btn-primary">Subir</a>
-        </div>
-        <div class="col">
-            <header>Cargar datos.txt a base de datos</header>
-            <a method="post" th:href="@{/asistencias/cargar}" class="btn btn-primary">Subir</a>
         </div>
         <div class="col">
             <header>Calcular planilla de sueldos</header>

@@ -28,25 +28,9 @@ public class SubirArchivoControlador {
     @PostMapping("/cargar")
     public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes attributes)
             throws IOException {
-
-        if (file == null || file.isEmpty()) {
-            attributes.addFlashAttribute("message", "Por favor seleccione un archivo");
-            return "redirect:/";
-        }
-
-        StringBuilder builder = new StringBuilder();
-        builder.append(System.getProperty("user.home"));
-        builder.append(File.separator);
-        builder.append("spring_upload_example");
-        builder.append(File.separator);
-        builder.append(file.getOriginalFilename());
-
-        byte[] fileBytes = file.getBytes();
-        Path path = Paths.get(builder.toString());
-        Files.write(path, fileBytes);
-
-        attributes.addFlashAttribute("message", "Archivo cargado correctamente ["+builder.toString()+"]");
-
+        byte[] bytes = file.getBytes();
+        Path path = Paths.get("cargas//"+file.getOriginalFilename());
+        Files.write(path,bytes);
         return "redirect:/asistencias/cargar";
     }
 }

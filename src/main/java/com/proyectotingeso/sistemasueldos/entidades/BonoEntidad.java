@@ -6,7 +6,7 @@ import java.io.Serializable;
 @Table(name = "bono")
 public class BonoEntidad {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private int  limite_inferior;
     private int limite_superior;
