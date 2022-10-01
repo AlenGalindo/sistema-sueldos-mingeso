@@ -1,6 +1,5 @@
 package com.proyectotingeso.sistemasueldos;
 
-import com.proyectotingeso.sistemasueldos.controladores.LeerArchivoControlador;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

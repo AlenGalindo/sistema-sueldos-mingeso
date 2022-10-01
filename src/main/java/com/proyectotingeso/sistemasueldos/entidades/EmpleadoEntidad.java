@@ -2,14 +2,13 @@ package com.proyectotingeso.sistemasueldos.entidades;
 
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import javax.persistence.*;
-import java.sql.Date;
 
 @Entity
 @Table(name = "empleado")
+@AllArgsConstructor
+@NoArgsConstructor
 public class EmpleadoEntidad {
     //Id unico del empleado
     @Id
@@ -18,4 +17,36 @@ public class EmpleadoEntidad {
     private String nombre;
     private String fecha_contratacion;
     private String rut;
+
+    public int getId() {
+        return id;
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getFecha_contratacion() {
+        return fecha_contratacion;
+    }
+
+    public String getRut() {
+        return rut;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setFecha_contratacion(String fecha_contratacion) {
+        this.fecha_contratacion = fecha_contratacion;
+    }
+
+    public void setRut(String rut) {
+        this.rut = rut;
+    }
 }

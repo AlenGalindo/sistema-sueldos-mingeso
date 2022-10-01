@@ -4,23 +4,25 @@ services:
     image: mysql
     restart: always
     volumes:
-      - ./data/db:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: alen3883
-      MYSQL_DATABASE: sistema
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: sistema-sueldos
     ports:
-      - 33070:3307
-  app:
-    container_name: <nombre_contenedor>
-    image: <nombre_usuario>/<nombre_repositorio>
+      - 33061:3306
+  cat_app:
+    container_name: sistema_sueldos
+    image: alengalindo/mi-app-tingeso
     ports:
       - "8080:8080"
     environment:
-      - DB_URL=jdbc:mysql://mysql-db:3306/<nombre_db>?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
-      - DB_USERNAME=root
-      - DB_PASSWORD=123456
+      DB_URL: jdbc:mysql://mysql-db:33061/bd?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+      DB_USERNAME: root
+      DB_PASSWORD: 123456
     deploy:
       restart_policy:
         condition: on-failure
     depends_on:
       - mysql-db
+volumes:
+  mysql-data:

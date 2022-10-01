@@ -1,9 +1,7 @@
 package com.proyectotingeso.sistemasueldos.controladores;
 
 import com.proyectotingeso.sistemasueldos.entidades.AutorizacionEntidad;
-import com.proyectotingeso.sistemasueldos.entidades.JustificativoEntidad;
 import com.proyectotingeso.sistemasueldos.servicios.AutorizacionServicio;
-import com.proyectotingeso.sistemasueldos.servicios.JustificativoServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

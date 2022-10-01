@@ -1,6 +1,5 @@
 package com.proyectotingeso.sistemasueldos.controladores;
 
-import com.proyectotingeso.sistemasueldos.entidades.AsistenciaEntidad;
 import com.proyectotingeso.sistemasueldos.entidades.PlanillaEntidad;
 import com.proyectotingeso.sistemasueldos.servicios.PlanillaServicio;
 import org.springframework.beans.factory.annotation.Autowired;

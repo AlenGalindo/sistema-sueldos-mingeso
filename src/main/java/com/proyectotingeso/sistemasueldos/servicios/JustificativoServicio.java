@@ -1,6 +1,5 @@
 package com.proyectotingeso.sistemasueldos.servicios;
 
-import com.proyectotingeso.sistemasueldos.entidades.AsistenciaEntidad;
 import com.proyectotingeso.sistemasueldos.entidades.JustificativoEntidad;
 import com.proyectotingeso.sistemasueldos.repositorios.JustificativoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;

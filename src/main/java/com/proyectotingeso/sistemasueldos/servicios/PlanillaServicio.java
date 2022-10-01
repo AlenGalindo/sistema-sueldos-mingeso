@@ -1,8 +1,6 @@
 package com.proyectotingeso.sistemasueldos.servicios;
 
-import com.proyectotingeso.sistemasueldos.entidades.AsistenciaEntidad;
 import com.proyectotingeso.sistemasueldos.entidades.PlanillaEntidad;
-import com.proyectotingeso.sistemasueldos.repositorios.AsistenciaRepositorio;
 import com.proyectotingeso.sistemasueldos.repositorios.PlanillaRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

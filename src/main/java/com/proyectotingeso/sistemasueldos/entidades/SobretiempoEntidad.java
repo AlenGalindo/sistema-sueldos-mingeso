@@ -1,13 +1,34 @@
 package com.proyectotingeso.sistemasueldos.entidades;
 
 import javax.persistence.*;
-import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name = "sobretiempo")
-public class SobretiempoEntidad implements Serializable {
+@NoArgsConstructor
+@AllArgsConstructor
+public class SobretiempoEntidad {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private int categoria;
     private int monto;
+
+    public int getCategoria() {
+        return categoria;
+    }
+
+    public int getMonto() {
+        return monto;
+    }
+
+    public void setCategoria(int categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setMonto(int monto) {
+        this.monto = monto;
+    }
 }

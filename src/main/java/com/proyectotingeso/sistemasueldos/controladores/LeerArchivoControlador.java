@@ -3,9 +3,8 @@ package com.proyectotingeso.sistemasueldos.controladores;
 import org.springframework.stereotype.Controller;
 
 import java.io.*;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 @Controller
 public class LeerArchivoControlador {
@@ -22,6 +21,7 @@ public class LeerArchivoControlador {
                 System.out.println("Fecha " + linea[0] + "Hora " + linea[1] + "Rut " + linea[2]);
                 arreglo_strings.add(i,linea);
             }
+            buffer.close();
         }
         catch(FileNotFoundException e){
             e.printStackTrace();
