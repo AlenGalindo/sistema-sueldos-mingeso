@@ -10,7 +10,8 @@ import java.util.ArrayList;
 public class LeerArchivoControlador {
 
     public ArrayList<String[]> leerData() throws IOException {
-        String path = "cargas//DATOS.txt";
+        String path = "/data.txt";
+        System.out.println("Voy a leer el archivo " + path);
         String line = "";
         ArrayList<String[]> arreglo_strings = new ArrayList<String[]>();
         int i = 0;

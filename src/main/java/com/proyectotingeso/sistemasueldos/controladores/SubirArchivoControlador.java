@@ -1,5 +1,7 @@
 package com.proyectotingeso.sistemasueldos.controladores;
 
+import com.proyectotingeso.sistemasueldos.servicios.AsistenciaServicio;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +20,8 @@ import java.nio.file.Paths;
 @RequestMapping
 public class SubirArchivoControlador {
 
+    @Autowired
+    AsistenciaServicio asistenciaServicio;
     @GetMapping("/subir_archivo")
     public String mostrarSubirArchivo(){
         return "subir_archivo";
@@ -26,9 +30,14 @@ public class SubirArchivoControlador {
     @PostMapping("/cargar")
     public String uploadFile(@RequestParam("file") MultipartFile file, RedirectAttributes attributes)
             throws IOException {
+        asistenciaServicio.deleteAllAsistencias();
+        StringBuilder builder = new StringBuilder();
+        builder.append("/");
+        builder.append(file.getOriginalFilename());
         byte[] bytes = file.getBytes();
-        Path path = Paths.get("cargas//"+file.getOriginalFilename());
+        Path path = Paths.get(builder.toString());
         Files.write(path,bytes);
+        System.out.println(path+"<-");
         return "redirect:/asistencias/cargar";
     }
 }

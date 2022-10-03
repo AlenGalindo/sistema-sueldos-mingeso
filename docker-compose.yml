@@ -7,16 +7,16 @@ services:
       - mysql-data:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: 123456
-      MYSQL_DATABASE: sistema-sueldos
+      MYSQL_DATABASE: bd
     ports:
       - 33061:3306
-  cat_app:
-    container_name: sistema_sueldos
+  app:
+    container_name: app-web-simple
     image: alengalindo/mi-app-tingeso
     ports:
-      - "8080:8080"
+      - "8081:8080"
     environment:
-      DB_URL: jdbc:mysql://mysql-db:33061/bd?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+      DB_URL: jdbc:mysql://mysql-db:3306/bd?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
       DB_USERNAME: root
       DB_PASSWORD: 123456
     deploy:

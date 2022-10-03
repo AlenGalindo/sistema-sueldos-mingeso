@@ -34,4 +34,7 @@ public class AsistenciaServicio {
         }
     }
 
+    public void deleteAllAsistencias(){
+        asistenciaRepositorio.deleteAll();
+    }
 }
