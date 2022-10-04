@@ -18,6 +18,10 @@ public class EmpleadoEntidad {
     private String fecha_contratacion;
     private String rut;
 
+    private int sueldo_fijo;
+
+    private String categoria;
+
     public int getId() {
         return id;
     }
@@ -48,5 +52,21 @@ public class EmpleadoEntidad {
 
     public void setRut(String rut) {
         this.rut = rut;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public int getSueldo_fijo() {
+        return sueldo_fijo;
+    }
+
+    public void setSueldo_fijo(int sueldo_fijo) {
+        this.sueldo_fijo = sueldo_fijo;
     }
 }

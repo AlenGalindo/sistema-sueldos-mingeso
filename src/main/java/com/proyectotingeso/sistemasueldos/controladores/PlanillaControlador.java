@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.ArrayList;
@@ -21,5 +22,11 @@ public class PlanillaControlador {
         ArrayList<PlanillaEntidad> planillas = planillaServicio.getPlanillas();
         model.addAttribute("planillas",planillas);
         return "planilla_index";
+    }
+
+    @GetMapping("/planillas/calcular")
+    public String calcularplanillas(){
+        planillaServicio.crearPlanillas();
+        return "redirect:/planillas";
     }
 }

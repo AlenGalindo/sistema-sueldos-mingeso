@@ -34,4 +34,14 @@ public class JustificativoServicio {
             return false;
         }
     }
+
+    public boolean getByFecha(String fecha_asistencia) {
+        for(JustificativoEntidad justificativo:  (ArrayList<JustificativoEntidad>) justificativoRepositorio.findAll()){
+            String justi_fecha = justificativo.getFecha();
+            if(fecha_asistencia == justi_fecha){
+                return true;
+            }
+        }
+        return false;
+    }
 }
