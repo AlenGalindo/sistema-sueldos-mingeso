@@ -73,18 +73,17 @@ div {
       <th>rut</th>
       <th>categoria</th>
       <th>fecha contratacion</th>
+      <th>sueldo fijo</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="empleado:${empleado}">
       <td th:text="${empleado.id}"></td>
       <td th:text="${empleado.nombre}"></td>
+      <td th:text="${empleado.rut}"></td>
       <td th:text="${empleado.categoria}"></td>
       <td th:text="${empleado.fecha_contratacion}"></td>
-      <td>
-        <a class="btn btn-primary" href="#" role="button">Editar</a>
-        <a class="btn btn-danger" href="#" role="button">Eliminar</a>
-      </td>
+      <td th:text="${empleado.sueldo_fijo}"></td>
     </tr>
     </tbody>
   </table>
