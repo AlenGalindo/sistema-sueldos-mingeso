@@ -60,6 +60,7 @@ public class PlanillaServicio {
 
     public void crearPlanillas() {
         for (EmpleadoEntidad empleadoEntidad : (ArrayList<EmpleadoEntidad>) empleadoServicio.getEmpleados()) {
+            System.out.println(empleadoEntidad.getNombre());
             PlanillaEntidad nuevaPlanilla = new PlanillaEntidad();
             String fecha_contratacion = empleadoEntidad.getFecha_contratacion();
             nuevaPlanilla.setMonto_bono((int) (calculosControlador.getBonosAnnosServicio(fecha_contratacion)));
