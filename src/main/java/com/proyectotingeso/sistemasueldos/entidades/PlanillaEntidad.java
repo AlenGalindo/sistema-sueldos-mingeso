@@ -23,6 +23,7 @@ public class PlanillaEntidad {
     private String categoria;
     private float annos_servicio;
     private float sueldo_fijo;
+    private float sueldo_bruto;
     private float monto_bono;
     private float monto_extras;
     private float monto_descuentos;
