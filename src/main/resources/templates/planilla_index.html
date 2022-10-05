@@ -94,16 +94,14 @@ button {
         <tbody>
         <tr th:each="planilla:${planillas}">
             <td th:text="${planilla.id}"></td>
-            <td th:text="${planilla.rut}"></td>
             <td th:text="${planilla.nombre}"></td>
+            <td th:text="${planilla.rut}"></td>
             <td th:text="${planilla.categoria}"></td>
             <td th:text="${planilla.annos_servicio}"></td>
             <td th:text="${planilla.sueldo_fijo}"></td>
-            <td th:text="${planilla.annos_servicio}"></td>
             <td th:text="${planilla.monto_bonos}"></td>
             <td th:text="${planilla.monto_extras}"></td>
             <td th:text="${planilla.monto_descuentos}"></td>
-            <td th:text="${planilla.sueldo_bruto}"></td>
             <td th:text="${planilla.previsional}"></td>
             <td th:text="${planilla.salud}"></td>
             <td th:text="${planilla.liquido}"></td>

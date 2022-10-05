@@ -26,7 +26,6 @@ public class PlanillaEntidad {
     private int monto_bono;
     private int monto_extras;
     private int monto_descuentos;
-    private int sueldo_bruto;
     private float previsional;
     private float salud;
     private float liquido;
