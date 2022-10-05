@@ -38,7 +38,7 @@ public class JustificativoServicio {
     public boolean getByFecha(String fecha_asistencia) {
         for(JustificativoEntidad justificativo:  (ArrayList<JustificativoEntidad>) justificativoRepositorio.findAll()){
             String justi_fecha = justificativo.getFecha();
-            if(fecha_asistencia == justi_fecha){
+            if(fecha_asistencia.equals(justi_fecha)){
                 return true;
             }
         }
