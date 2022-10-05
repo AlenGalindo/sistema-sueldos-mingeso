@@ -28,6 +28,6 @@ public class PlanillaControlador {
     public String calcularplanillas(){
         planillaServicio.truncate();
         planillaServicio.crearPlanillas();
-        return "/planillas_index";
+        return "planilla_index";
     }
 }
