@@ -21,11 +21,11 @@ public class PlanillaEntidad {
     private String nombre;
     private String rut;
     private String categoria;
-    private int annos_servicio;
-    private int sueldo_fijo;
-    private int monto_bono;
-    private int monto_extras;
-    private int monto_descuentos;
+    private float annos_servicio;
+    private float sueldo_fijo;
+    private float monto_bono;
+    private float monto_extras;
+    private float monto_descuentos;
     private float previsional;
     private float salud;
     private float liquido;
