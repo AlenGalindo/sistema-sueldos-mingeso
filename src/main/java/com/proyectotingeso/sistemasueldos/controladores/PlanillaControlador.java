@@ -29,6 +29,6 @@ public class PlanillaControlador {
         System.out.println("Antes de entrar a crear las planillas");
         planillaServicio.crearPlanillas();
         System.out.println("Sali de crear las planillas");
-        return "/planillas";
+        return "/planillas_index";
     }
 }

@@ -76,6 +76,18 @@ public class PlanillaServicio {
             nuevaPlanilla.setSueldo_fijo(empleadoEntidad.getSueldo_fijo());
             nuevaPlanilla.setAnnos_servicio(10);
             nuevaPlanilla.setMonto_descuentos(0);
+
+            for(AsistenciaEntidad asistencia: (ArrayList<AsistenciaEntidad>) asistenciaServicio.getAsistencias()){
+                for(AutorizacionEntidad autorizacion: (ArrayList<AutorizacionEntidad>) autorizacionServicio.getAutorizaciones()){
+                    int hora_salida = convertidor.getHora(asistencia.getHora());
+                    if(hora_salida >18 && autorizacion.getFecha().equals(autorizacion.getFecha())){
+                        float monto = 18 - hora_salida;
+                        nuevaPlanilla.setMonto_extras(nuevaPlanilla.getMonto_extras() + monto);
+                    }
+
+                }
+            }
+
             savePlanilla(nuevaPlanilla);
         }
     }
