@@ -30,11 +30,6 @@ public class CalculosControlador {
         return descuento;
     }
 
-    public float descuentoPrevSalud(float sueldo_final){
-        float sueldo = sueldo_final*(0.01f + 0.08f);
-        return sueldo;
-    }
-
     public float getBonosAnnosServicio(String fecha_contratacion){
         int anno_actual = LocalDate.now().getYear();
         float bono = 0f;
@@ -73,24 +68,5 @@ public class CalculosControlador {
         }
     }
 
-    public float sueldoNoCot(int monto_horas_extra, float bono, float descuentos){
-        ArrayList<String> categoria = new ArrayList<>();
-        categoria.add("A");
-        categoria.add("B");
-        categoria.add("C");
-        ArrayList<Integer> montos = new ArrayList<>();
-        montos.add(1700000);
-        montos.add(1200000);
-        montos.add(800000);
-
-        int sueldo_base = montos.get(categoria.indexOf(categoria));
-        float sueldo = sueldo_base + monto_horas_extra + sueldo_base*bono - descuentos;
-        return sueldo;
-    }
-
-    public float sueldo_liquido(float sueldo){
-        float sueldo_final = sueldo - descuentoPrevSalud(sueldo);
-        return sueldo_final;
-    }
 
 }
