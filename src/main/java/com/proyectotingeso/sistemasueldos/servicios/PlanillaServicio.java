@@ -113,8 +113,8 @@ public class PlanillaServicio {
             nuevaPlanilla.setMonto_bono(calculosControlador.getBonosAnnosServicio(empleadoEntidad.getFecha_contratacion()));
             float sueldo_bruto = empleadoEntidad.getSueldo_fijo() + nuevaPlanilla.getMonto_extras() + nuevaPlanilla.getMonto_bono() - nuevaPlanilla.getMonto_descuentos();
             nuevaPlanilla.setSueldo_bruto(sueldo_bruto);
-            nuevaPlanilla.setPrevisional(sueldo_bruto - sueldo_bruto*0.1f);
-            nuevaPlanilla.setSalud(sueldo_bruto - sueldo_bruto*0.08f);
+            nuevaPlanilla.setPrevisional(sueldo_bruto*0.1f);
+            nuevaPlanilla.setSalud(sueldo_bruto*0.08f);
             nuevaPlanilla.setLiquido(sueldo_bruto - nuevaPlanilla.getSalud() - nuevaPlanilla.getPrevisional());
             savePlanilla(nuevaPlanilla);
         }
