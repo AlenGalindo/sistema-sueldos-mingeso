@@ -110,7 +110,7 @@ public class PlanillaServicio {
 
             float annos_servicio = LocalDate.now().getYear() - convertidor.getAnnoFecha(empleadoEntidad.getFecha_contratacion());
             nuevaPlanilla.setAnnos_servicio(annos_servicio);
-            nuevaPlanilla.setMonto_bono(calculosControlador.getBonosAnnosServicio(empleadoEntidad.getFecha_contratacion()));
+            nuevaPlanilla.setMonto_bono(empleadoEntidad.getSueldo_fijo()*calculosControlador.getBonosAnnosServicio(empleadoEntidad.getFecha_contratacion()));
             float sueldo_bruto = empleadoEntidad.getSueldo_fijo() + nuevaPlanilla.getMonto_extras() + nuevaPlanilla.getMonto_bono() - nuevaPlanilla.getMonto_descuentos();
             nuevaPlanilla.setSueldo_bruto(sueldo_bruto);
             nuevaPlanilla.setPrevisional(sueldo_bruto*0.1f);
