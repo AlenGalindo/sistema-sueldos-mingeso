@@ -8,6 +8,10 @@ import com.proyectotingeso.sistemasueldos.entidades.EmpleadoEntidad;
 import com.proyectotingeso.sistemasueldos.entidades.JustificativoEntidad;
 import com.proyectotingeso.sistemasueldos.entidades.PlanillaEntidad;
 import com.proyectotingeso.sistemasueldos.repositorios.*;
+import java.time.LocalDate;
+
+import net.bytebuddy.asm.Advice.Local;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -92,7 +96,7 @@ public class PlanillaServicio {
                 for(JustificativoEntidad justificativo: (ArrayList<JustificativoEntidad>) justificativoServicio.getJustificativos()){
                     int hora_llegada = convertidor.getHora(asistencia.getHora());
                     int minutos_llegada = convertidor.getMinutos(asistencia.getHora());
-                    if(justificativoServicio.getByFecha(asistencia.getFecha()) == false && hora_llegada == 8){
+                    if(!justificativo.getFecha().equals(asistencia.getFecha()) && hora_llegada == 8){
                         float descuento = calculosControlador.getDescuentoAtraso(hora_llegada, minutos_llegada);
                         if(descuento < 0){
                             inasistencia ++;
@@ -101,8 +105,17 @@ public class PlanillaServicio {
                         }
                     }
                 }
+                
             }
 
+            float annos_servicio = LocalDate.now().getYear() - convertidor.getAnnoFecha(empleadoEntidad.getFecha_contratacion());
+            nuevaPlanilla.setAnnos_servicio(annos_servicio);
+            nuevaPlanilla.setMonto_bono(calculosControlador.getBonosAnnosServicio(empleadoEntidad.getFecha_contratacion()));
+            float sueldo_bruto = empleadoEntidad.getSueldo_fijo() + nuevaPlanilla.getMonto_extras() + nuevaPlanilla.getMonto_bono() - nuevaPlanilla.getMonto_descuentos();
+            nuevaPlanilla.setSueldo_bruto(sueldo_bruto);
+            nuevaPlanilla.setPrevisional(sueldo_bruto - sueldo_bruto*0.1f);
+            nuevaPlanilla.setSalud(sueldo_bruto - sueldo_bruto*0.08f);
+            nuevaPlanilla.setLiquido(sueldo_bruto - nuevaPlanilla.getSalud() - nuevaPlanilla.getPrevisional());
             savePlanilla(nuevaPlanilla);
         }
     }
