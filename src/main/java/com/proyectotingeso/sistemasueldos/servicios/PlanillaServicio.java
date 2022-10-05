@@ -116,6 +116,7 @@ public class PlanillaServicio {
             float liquido = sueldo - (salud + previsional);
             nuevaPlanilla.setLiquido(liquido);
 
+            System.out.println(nuevaPlanilla.getNombre());
             planillaRepositorio.save(nuevaPlanilla);
         }
     }
