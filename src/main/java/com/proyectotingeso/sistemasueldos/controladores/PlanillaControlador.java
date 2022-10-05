@@ -26,8 +26,8 @@ public class PlanillaControlador {
 
     @GetMapping("/planillas/calcular")
     public String calcularplanillas(){
-        planillaServicio.truncate();
+        //planillaServicio.truncate();
         planillaServicio.crearPlanillas();
-        return "planilla_index";
+        return "redirect:/planillas";
     }
 }
