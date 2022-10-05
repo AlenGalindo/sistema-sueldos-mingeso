@@ -7,7 +7,7 @@ pipeline {
         stage('Build jar file') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/AlenGalindo/sistema-sueldos-mingeso']]])
-                sh 'mvn package -DskipTests'
+                sh 'mvn clean install -DskipTests'
             }
         }
         stage('Build docker image'){
