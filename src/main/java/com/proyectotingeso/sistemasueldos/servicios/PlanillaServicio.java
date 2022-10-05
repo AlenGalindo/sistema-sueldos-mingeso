@@ -5,6 +5,7 @@ import com.proyectotingeso.sistemasueldos.controladores.ConvertidorControlador;
 import com.proyectotingeso.sistemasueldos.entidades.AsistenciaEntidad;
 import com.proyectotingeso.sistemasueldos.entidades.AutorizacionEntidad;
 import com.proyectotingeso.sistemasueldos.entidades.EmpleadoEntidad;
+import com.proyectotingeso.sistemasueldos.entidades.JustificativoEntidad;
 import com.proyectotingeso.sistemasueldos.entidades.PlanillaEntidad;
 import com.proyectotingeso.sistemasueldos.repositorios.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +77,7 @@ public class PlanillaServicio {
             nuevaPlanilla.setSueldo_fijo(empleadoEntidad.getSueldo_fijo());
             nuevaPlanilla.setAnnos_servicio(10);
             nuevaPlanilla.setMonto_descuentos(0);
+            float inasistencia = 0;
 
             for(AsistenciaEntidad asistencia: (ArrayList<AsistenciaEntidad>) asistenciaServicio.getAsistencias()){
                 for(AutorizacionEntidad autorizacion: (ArrayList<AutorizacionEntidad>) autorizacionServicio.getAutorizaciones()){
@@ -85,6 +87,19 @@ public class PlanillaServicio {
                         nuevaPlanilla.setMonto_extras(nuevaPlanilla.getMonto_extras() + monto);
                     }
 
+                }
+
+                for(JustificativoEntidad justificativo: (ArrayList<JustificativoEntidad>) justificativoServicio.getJustificativos()){
+                    int hora_llegada = convertidor.getHora(asistencia.getHora());
+                    int minutos_llegada = convertidor.getMinutos(asistencia.getHora());
+                    if(justificativoServicio.getByFecha(asistencia.getFecha()) == false && hora_llegada == 8){
+                        float descuento = calculosControlador.getDescuentoAtraso(hora_llegada, minutos_llegada);
+                        if(descuento < 0){
+                            inasistencia ++;
+                        }else{
+                            nuevaPlanilla.setMonto_descuentos(nuevaPlanilla.getMonto_descuentos() + descuento*empleadoEntidad.getSueldo_fijo());
+                        }
+                    }
                 }
             }
 
