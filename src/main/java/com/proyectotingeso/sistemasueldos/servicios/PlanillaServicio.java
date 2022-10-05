@@ -80,8 +80,8 @@ public class PlanillaServicio {
             for(AsistenciaEntidad asistencia: (ArrayList<AsistenciaEntidad>) asistenciaServicio.getAsistencias()){
                 for(AutorizacionEntidad autorizacion: (ArrayList<AutorizacionEntidad>) autorizacionServicio.getAutorizaciones()){
                     int hora_salida = convertidor.getHora(asistencia.getHora());
-                    if(hora_salida >18 && autorizacion.getFecha().equals(autorizacion.getFecha())){
-                        float monto = 18 - hora_salida;
+                    if(hora_salida >18 && asistencia.getFecha().equals(autorizacion.getFecha())){
+                        float monto = (float) calculosControlador.montoHorasExtra(hora_salida, empleadoEntidad.getCategoria());
                         nuevaPlanilla.setMonto_extras(nuevaPlanilla.getMonto_extras() + monto);
                     }
 
