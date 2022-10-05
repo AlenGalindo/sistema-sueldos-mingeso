@@ -81,14 +81,14 @@ button {
             <th>Nombre empleado</th>
             <th>Categoria</th>
             <th>Anios de servicio</th>
-            <th>Sueldo base</th>
-            <th>Bonos</th>
-            <th>Monto horas extras</th>
-            <th>Descuentos</th>
+            <th>Sueldo fijo menusal</th>
+            <th>Monto bonificacion annos de servicio</th>
+            <th>Monto pago horas extra</th>
+            <th>Monto descuentos</th>
             <th>Sueldo bruto</th>
             <th>Cotizacion previsional</th>
             <th>Cotizacion de salud</th>
-            <th>Sueldo liquido</th>
+            <th>Sueldo final</th>
         </tr>
         </thead>
         <tbody>
@@ -99,7 +99,7 @@ button {
             <td th:text="${planilla.categoria}"></td>
             <td th:text="${planilla.annos_servicio}"></td>
             <td th:text="${planilla.sueldo_fijo}"></td>
-            <td th:text="${planilla.monto_bonos}"></td>
+            <td th:text="${planilla.monto_bono}"></td>
             <td th:text="${planilla.monto_extras}"></td>
             <td th:text="${planilla.monto_descuentos}"></td>
             <td th:text="${planilla.previsional}"></td>
