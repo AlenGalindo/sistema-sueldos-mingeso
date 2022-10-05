@@ -89,7 +89,7 @@ public class PlanillaServicio {
                     int inasistencia = 0;
                     float descuento = 0;
 
-                    if (rut_empleado == rut_autorizacion && rut_empleado == rut_asistencia && fecha_asistencia == fecha_autorizacion && hora_salida > 18) {
+                    if (rut_empleado.equals(rut_autorizacion) && rut_empleado.equals(rut_asistencia) && fecha_asistencia.equals(fecha_autorizacion) && hora_salida > 18) {
                         monto_hora_extra = calculosControlador.montoHorasExtra(hora_salida, empleadoEntidad.getCategoria());
                         nuevaPlanilla.setMonto_extras(nuevaPlanilla.getMonto_extras() + monto_hora_extra);
                     }
