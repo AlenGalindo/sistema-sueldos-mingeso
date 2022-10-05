@@ -19,8 +19,8 @@ public class PlanillaControlador {
 
     @GetMapping("/planillas")
     public String listarPlanillas(Model model){
-        ArrayList<PlanillaEntidad> planillas = planillaServicio.getPlanillas();
-        model.addAttribute("planillas",planillas);
+        ArrayList<PlanillaEntidad> planilla = planillaServicio.getPlanillas();
+        model.addAttribute("planilla",planilla);
         return "planilla_index";
     }
 
@@ -29,6 +29,6 @@ public class PlanillaControlador {
         System.out.println("Antes de entrar a crear las planillas");
         planillaServicio.crearPlanillas();
         System.out.println("Sali de crear las planillas");
-        return "redirect:/planillas";
+        return "planillas";
     }
 }
