@@ -84,7 +84,11 @@ div {
         <tbody>
         <tr th:each="planilla:${planillas}">
             <td th:text="${planilla.id}"></td>
-            
+            <td th:text="${planilla.nombre}"></td>
+            <td th:text="${planilla.rut}"></td>
+            <td th:text="${planilla.categoria}"></td>
+            <td th:text="${planilla.annos_servicio}"></td>
+            <td th:text="${planilla.sueldo_fijo}"></td>
         </tr>
         </tbody>
     </table>
