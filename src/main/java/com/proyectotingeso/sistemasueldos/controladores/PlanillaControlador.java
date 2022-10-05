@@ -26,7 +26,9 @@ public class PlanillaControlador {
 
     @GetMapping("/planillas/calcular")
     public String calcularplanillas(){
+        System.out.println("Antes de entrar a crear las planillas");
         planillaServicio.crearPlanillas();
+        System.out.println("Sali de crear las planillas");
         return "redirect:/planillas";
     }
 }
