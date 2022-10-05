@@ -63,6 +63,10 @@ public class PlanillaServicio {
         }
     }
 
+    public void truncate(){
+        planillaRepositorio.truncate();
+    }
+
     public void crearPlanillas() {
         for (EmpleadoEntidad empleadoEntidad : (ArrayList<EmpleadoEntidad>) empleadoServicio.getEmpleados()) {
             System.out.println(empleadoEntidad.getNombre());
