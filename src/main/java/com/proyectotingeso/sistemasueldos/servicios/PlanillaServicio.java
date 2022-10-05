@@ -72,6 +72,9 @@ public class PlanillaServicio {
             nuevaPlanilla.setRut(empleadoEntidad.getRut());
             nuevaPlanilla.setCategoria(empleadoEntidad.getCategoria());
             nuevaPlanilla.setSueldo_fijo(empleadoEntidad.getSueldo_fijo());
+            nuevaPlanilla.setMonto_bono(0);
+            nuevaPlanilla.setMonto_extras(0);
+            nuevaPlanilla.setMonto_descuentos(0);
 
             //Calculo de horas extra y descuentos por atraso
             for (AsistenciaEntidad asistencia : (ArrayList<AsistenciaEntidad>) asistenciaServicio.getAsistencias()) {
@@ -121,7 +124,7 @@ public class PlanillaServicio {
             nuevaPlanilla.setLiquido(liquido);
 
             System.out.println(nuevaPlanilla.getNombre());
-            planillaRepositorio.save(nuevaPlanilla);
+            savePlanilla(nuevaPlanilla);
         }
     }
 }
